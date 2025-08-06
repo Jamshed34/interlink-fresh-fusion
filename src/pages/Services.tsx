@@ -17,6 +17,7 @@ import {
 import supplyChainImage from "@/assets/supply-chain.jpg";
 
 const Services = () => {
+  console.log("Services component is loading...");
   const mainServices = [
     {
       icon: <ShoppingCart className="w-8 h-8" />,

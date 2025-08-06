@@ -14,6 +14,9 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Force router reload to fix routing issues
+console.log("App component loading with all routes configured");
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>

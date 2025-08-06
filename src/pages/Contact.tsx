@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 
 const Contact = () => {
+  console.log("Contact component is loading...");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
