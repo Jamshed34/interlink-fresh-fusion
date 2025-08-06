@@ -13,6 +13,10 @@ import {
   CheckCircle,
   ArrowRight
 } from "lucide-react";
+import freshFruits from "@/assets/fresh-fruits.jpg";
+import freshVegetables from "@/assets/fresh-vegetables.jpg";
+import preparedProduce from "@/assets/prepared-produce.jpg";
+import organicSpecialty from "@/assets/organic-specialty.jpg";
 
 const Products = () => {
   const productCategories = [
@@ -20,6 +24,7 @@ const Products = () => {
       icon: <Apple className="w-8 h-8" />,
       title: "Fresh Fruits",
       description: "Premium quality fruits sourced from the best growers worldwide",
+      image: freshFruits,
       products: [
         "Apples (various varieties)",
         "Citrus fruits (oranges, lemons, limes)",
@@ -34,6 +39,7 @@ const Products = () => {
       icon: <Carrot className="w-8 h-8" />,
       title: "Fresh Vegetables",
       description: "Wide variety of vegetables to meet all your culinary and processing needs",
+      image: freshVegetables,
       products: [
         "Root vegetables (carrots, potatoes, onions)",
         "Leafy greens (lettuce, spinach, kale)",
@@ -48,6 +54,7 @@ const Products = () => {
       icon: <Package className="w-8 h-8" />,
       title: "Prepared Produce",
       description: "Ready-to-use fruits and vegetables processed to your specifications",
+      image: preparedProduce,
       products: [
         "Pre-cut vegetables",
         "Sliced and diced fruits",
@@ -62,6 +69,7 @@ const Products = () => {
       icon: <Leaf className="w-8 h-8" />,
       title: "Organic & Specialty",
       description: "Certified organic and specialty produce for discerning customers",
+      image: organicSpecialty,
       products: [
         "Certified organic fruits",
         "Certified organic vegetables",
@@ -137,14 +145,22 @@ const Products = () => {
         <section className="mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {productCategories.map((category, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="bg-primary/10 p-3 rounded-lg text-primary">
+              <Card key={index} className="hover:shadow-lg transition-shadow overflow-hidden">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={category.image} 
+                    alt={category.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <div className="bg-primary/80 p-2 rounded-lg mb-2 w-fit">
                       {category.icon}
                     </div>
-                    <CardTitle className="text-xl">{category.title}</CardTitle>
+                    <h3 className="text-xl font-bold">{category.title}</h3>
                   </div>
+                </div>
+                <CardHeader>
                   <p className="text-muted-foreground">{category.description}</p>
                 </CardHeader>
                 <CardContent>

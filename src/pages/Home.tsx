@@ -11,10 +11,37 @@ import {
   ArrowRight,
   Phone
 } from "lucide-react";
-import heroImage from "@/assets/hero-produce.jpg";
+import HeroSlider from "@/components/HeroSlider";
 import produceGrid from "@/assets/produce-grid.jpg";
+import sliderWarehouse from "@/assets/slider-warehouse.jpg";
+import sliderMarket from "@/assets/slider-market.jpg";
+import sliderRestaurant from "@/assets/slider-restaurant.jpg";
 
 const Home = () => {
+  const sliderData = [
+    {
+      id: 1,
+      image: sliderWarehouse,
+      title: "Fresh Produce",
+      subtitle: "Wholesale Specialists",
+      description: "Excellence in supplying fresh, high-quality produce across the UK. Your trusted partner for imports, exports, and supply chain management."
+    },
+    {
+      id: 2,
+      image: sliderMarket,
+      title: "Global Sourcing",
+      subtitle: "Worldwide Network",
+      description: "Our extensive network of trusted suppliers spans multiple continents, ensuring year-round availability of premium produce at competitive prices."
+    },
+    {
+      id: 3,
+      image: sliderRestaurant,
+      title: "Industry Partnerships",
+      subtitle: "Business Solutions",
+      description: "Serving restaurants, retailers, and food processors with dedicated account management and customized supply chain solutions."
+    }
+  ];
+
   const features = [
     {
       icon: <Leaf className="w-6 h-6" />,
@@ -47,37 +74,8 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary-glow to-primary min-h-[600px] flex items-center">
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
-              Fresh Produce
-              <span className="block text-primary-glow">Wholesale Specialists</span>
-            </h1>
-            <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-              Excellence in supplying fresh, high-quality produce across the UK. 
-              Your trusted partner for imports, exports, and supply chain management.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contact">
-                <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                  Get Quote <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
-              <Link to="/products">
-                <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                  View Products
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Slider Section */}
+      <HeroSlider slides={sliderData} />
 
       {/* Features Section */}
       <section className="py-16 bg-secondary">
